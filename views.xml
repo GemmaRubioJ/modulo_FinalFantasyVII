@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--Vistas-->
+    <record id="shinra_action" model="ir.actions.act_window">
+		<field name="name">Action Shinra</field>
+		<field name="res_model">ff7.shinra</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+    <record id="turks_action" model="ir.actions.act_window">
+		<field name="name">Action Turks</field>
+		<field name="res_model">ff7.turks</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+    <record id="soldadoMember_action" model="ir.actions.act_window">
+		<field name="name">Action Soldado</field>
+		<field name="res_model">ff7.soldado</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+    <record id="weapon_action" model="ir.actions.act_window">
+		<field name="name">Action Weapon</field>
+		<field name="res_model">ff7.weapon</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+    <record id="materia_action" model="ir.actions.act_window">
+		<field name="name">Action Materia</field>
+		<field name="res_model">ff7.materia</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+    <record id="avalanche_action" model="ir.actions.act_window">
+		<field name="name">Action Avalanche</field>
+		<field name="res_model">ff7.avalanche</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+
+    <!--Tree para SHINRA MEMBERS-->
+    <record id="view_shinra_tree" model="ir.ui.view" >
+		<field name="name">shinra.tree</field>
+		<field name="model">ff7.shinra</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="name"/>
+				<field name="birth"/>
+			</tree>
+		</field>
+	</record>
+    <!--Tree para Turkos-->
+    <record id="view_turks_tree" model="ir.ui.view" >
+		<field name="name">turks.tree</field>
+		<field name="model">ff7.turks</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="name"/>
+				<field name="birth"/>
+                <field name="rank"/>
+               <!-- <field name="assassinated_member_id"/> -->
+			</tree>
+		</field>
+	</record>
+    <!--Tree para Soldado-->
+    <record id="view_soldado_tree" model="ir.ui.view" >
+		<field name="name">soldado.tree</field>
+		<field name="model">ff7.soldado</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="name"/>
+				<field name="birth"/>
+                <field name="weapon"/>
+                <field name="clase"/>
+				<field name="maddness_index"/>
+			</tree>
+		</field>
+	</record>
+	<!--Tree para Weapons-->
+    <record id="view_weapon_tree" model="ir.ui.view" >
+		<field name="name">weapon.tree</field>
+		<field name="model">ff7.weapon</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="name"/>
+				<field name="material"/>
+                <field name="slot_count"/>
+                <field name="materia_ids"/>
+			</tree>
+		</field>
+	</record>
+	<!--Tree para Materia-->
+    <record id="view_materia_tree" model="ir.ui.view" >
+		<field name="name">materia.tree</field>
+		<field name="model">ff7.materia</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="name"/>
+				<field name="materia_type"/>
+                <field name="slot_occupancy"/>
+			</tree>
+		</field>
+	</record>
+	<!--Tree para Avalanche-->
+    <record id="view_avalanche_tree" model="ir.ui.view" >
+		<field name="name">avalanche.tree</field>
+		<field name="model">ff7.avalanche</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="name"/>
+				<!--  <field name="weapon_id"/> -->
+                <field name="former_soldado"/>
+				<field name="missions_count"/>
+				<field name="on_reserve"/>
+				<field name="reserve_time"/>
+			</tree>
+		</field>
+	</record>
+
+	<!--Form para SHINRA MEMBERS-->
+    <record model="ir.ui.view" id="shinra_form_view">
+        <field name="name">shinra.form</field>
+        <field name="model">ff7.shinra</field>
+        <field name="arch" type="xml">
+            <form string="Miembro de Shinra">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="birth"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+	<!--Form para TURKOS-->
+    <record model="ir.ui.view" id="turks_form_view">
+        <field name="name">turks.form</field>
+        <field name="model">ff7.turks</field>
+        <field name="arch" type="xml">
+            <form string="Miembro de los Turkos">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="birth"/>
+						<field name="rank"/>
+						<!--<field name="assassinated_member_id"/> -->
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+	<!--Form para SOLDADO-->
+    <record model="ir.ui.view" id="soldado_form_view">
+        <field name="name">soldado.form</field>
+        <field name="model">ff7.soldado</field>
+        <field name="arch" type="xml">
+            <form string="Miembro de Shinra">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="birth"/>
+						<field name="weapon"/>
+						<field name="clase"/>
+						<field name="maddness_index"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+	<!--Form para WEAPONS-->
+    <record model="ir.ui.view" id="weapon_form_view">
+        <field name="name">weapon.form</field>
+        <field name="model">ff7.weapon</field>
+        <field name="arch" type="xml">
+            <form string="Arma">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="material"/>
+						<field name="slot_count"/>
+						<field name="materia_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+	<!--Form para MATERIA-->
+    <record model="ir.ui.view" id="materia_form_view">
+        <field name="name">materia.form</field>
+        <field name="model">ff7.materia</field>
+        <field name="arch" type="xml">
+            <form string="Materia">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+						<field name="materia_type"/>
+						<field name="slot_occupancy"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+	<!--Form para AVALANCHE-->
+    <record model="ir.ui.view" id="avalanche_form_view">
+        <field name="name">avalanche.form</field>
+        <field name="model">ff7.avalanche</field>
+        <field name="arch" type="xml">
+            <form string="Miembro de avalancha">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                     <!--   <field name="weapon_id"/> -->
+						<field name="former_soldado"/>
+						<field name="missions_count"/>
+						<field name="on_reserve"/>
+						<field name="reserve_time"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+	 <!-- Agregar un elemento al menú para acceder a la vista de SOLDADO -->
+    <!-- Nota: Asumiendo que ya tienes un menú padre (por ejemplo, ff7.main_menu) -->
+    <menuitem
+        id="ff7.main_menu"
+        name="ff7.main_menu"
+        sequence="10" />
+	<menuitem
+         id="shinra" 
+         name="Miembros de Shinra" 
+         parent="ff7.main_menu" 
+         action="shinra_action"
+          sequence="10"/>
+	<menuitem
+        id="turks" 
+        name="Miembros de los Turkos"
+        parent="ff7.main_menu"
+        action="turks_action"
+        sequence="10"/>
+    <menuitem
+        id="soldado"
+        name="Miembros de Soldado" 
+        parent="ff7.main_menu"
+        action="soldadoMember_action" 
+        sequence="10"/>
+	<menuitem
+		id="weapons" 
+		name="Armas" 
+		parent="ff7.main_menu" 
+		action="weapon_action" 
+		sequence="10"/>
+	<menuitem 
+		id="materia" 
+		name="Materias" 
+		parent="ff7.main_menu" 
+		action="materia_action" 
+		sequence="10"/>
+	<menuitem 
+		id="avalanche" 
+		name="Avalancha" 
+		parent="ff7.main_menu" 
+		action="avalanche_action" 
+		sequence="10"/>
+	
+</odoo>
